@@ -41,17 +41,19 @@
     });
 
     JFCustomWidget.subscribe("submit", function() {
-      JFCustomWidget.sendSubmit({
-        valid: true,
-        value: document.getElementById("name").value || "No name entered",
-        data: {
-          name:    document.getElementById("name").value,
-          email:   document.getElementById("email").value,
-          phone:   document.getElementById("phone").value,
-          company: document.getElementById("company").value
-        }
-      });
-    });
+  alert("Submit fired! Name: " + document.getElementById("name").value);
+  
+  JFCustomWidget.sendSubmit({
+    valid: true,
+    value: document.getElementById("name").value || "No name entered",
+    data: {
+      name:    document.getElementById("name").value,
+      email:   document.getElementById("email").value,
+      phone:   document.getElementById("phone").value,
+      company: document.getElementById("company").value
+    }
+  });
+});
   </script>
 </body>
 </html>
