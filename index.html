@@ -46,33 +46,23 @@
     <label>Company</label>
     <input type="text" id="company" placeholder="Acme Ltd">
   </div>
-  <button id="submitBtn">Save to Form</button>
-
-  <script>
+  
+ <script>
     JFCustomWidget.subscribe("ready", function() {
-      JFCustomWidget.requestFrameSize(230);
-    });
-
-    document.getElementById("submitBtn").addEventListener("click", function() {
-      var name    = document.getElementById("name").value;
-      var email   = document.getElementById("email").value;
-      var phone   = document.getElementById("phone").value;
-      var company = document.getElementById("company").value;
-
-      JFCustomWidget.sendSubmit({
-        valid: true,
-        value: name || "No name entered",
-        data: {
-          name:    name,
-          email:   email,
-          phone:   phone,
-          company: company
-        }
-      });
+      JFCustomWidget.requestFrameSize(210);
     });
 
     JFCustomWidget.subscribe("submit", function() {
-      document.getElementById("submitBtn").click();
+      JFCustomWidget.sendSubmit({
+        valid: true,
+        value: document.getElementById("name").value || "No name entered",
+        data: {
+          name:    document.getElementById("name").value,
+          email:   document.getElementById("email").value,
+          phone:   document.getElementById("phone").value,
+          company: document.getElementById("company").value
+        }
+      });
     });
   </script>
 </body>
