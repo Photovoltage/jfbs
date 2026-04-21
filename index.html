@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
+</head>
+<body>
+  <input type="text" id="myInput">
+  <script>
+    JFCustomWidget.subscribe("ready", function() {
+      // Widget is loaded — set up your UI here
+    });
+
+    JFCustomWidget.subscribe("submit", function() {
+      JFCustomWidget.sendSubmit({
+        valid: true,
+        value: document.getElementById("myInput").value
+      });
+    });
+  </script>
+</body>
+</html>
